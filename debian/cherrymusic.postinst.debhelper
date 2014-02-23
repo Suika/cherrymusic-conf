@@ -1,0 +1,22 @@
+
+# Automatically added by dh_python2:
+if which pycompile >/dev/null 2>&1; then
+	pycompile -p cherrymusic 
+fi
+
+if which pycompile >/dev/null 2>&1; then
+	pycompile -p cherrymusic /usr/share/cherrymusic -V 2.6-
+fi
+
+# End automatically added section
+
+# Automatically added by dh_python3:
+if which py3compile >/dev/null 2>&1; then
+	py3compile -p cherrymusic 
+fi
+
+if which py3compile >/dev/null 2>&1; then
+	py3compile -p cherrymusic /usr/share/cherrymusic -V 3.2-
+fi
+
+# End automatically added section

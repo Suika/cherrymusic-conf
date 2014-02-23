@@ -1,0 +1,24 @@
+#!/usr/bin/make -f
+
+PYTHON2=$(shell pyversions -vr)
+PYTHON3=$(shell py3versions -vr)
+
+%:
+	dh $@ --with python2,python3
+
+override_dh_auto_build:
+	dh_auto_build
+	set -ex; for py in $(PYTHON3) ; do \
+		python$$py setup.py build; \
+	done;
+
+override_dh_auto_install:
+	dh_auto_install
+	set -ex; for py in $(PYTHON3) ; do \
+		python$$py setup.py install --root=$(CURDIR)/debian/tmp --install-layout=deb; \
+	done;
+
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -rf build
+	rm -rf *.egg-info

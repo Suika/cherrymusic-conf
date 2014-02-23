@@ -1,0 +1,33 @@
+Source: cherrymusic
+Section: python
+Priority: optional
+Maintainer: Tom Wallroth <tomwallroth@gmail.com>
+Uploaders: Simon Walter <admin@m-chan.org>
+Homepage: http://fomori.org/cherrymusic/
+Build-Depends: debhelper (>= 7.0.50~), python-all (>= 2.6), python3 (>= 3.2)
+Build-Depends-Indep: python-setuptools (>= 0.6c1), python3-setuptools, python-cherrypy3 (>= 3.2.2-2), python3-unidecode (>= 0.04.9-1), python-mutagen (>= 1.20-1)
+Standards-Version: 3.9.3
+X-Python-Version: >= 2.6
+X-Python3-Version: >= 3.2
+
+Package: cherrymusic
+Architecture: all
+Depends: ${python:Depends}, ${misc:Depends}, python-pkg-resources, python-setuptools (>= 0.6c1), python-mutagen (>= 1.20-1)
+Recommends: python-dev-all (>= 2.6), build-essential
+Description: an mp3 server for your browser
+ CherryMusic is a music streaming
+ server written in python. It's based on cherrypy and jPlayer.
+ You can search your collection, create and share playlists with
+ other users. It's able to play music on almost all devices since
+ it happens in your browser and uses HTML5 for audio playback.
+
+Package: cherrymusic3
+Architecture: all
+Depends: ${python3:Depends}, ${misc:Depends}, python3-pkg-resources, python3-setuptools, python3-unidecode (>= 0.04.9-1)
+Recommends: python3-dev (>= 3.2), build-essential
+Description: an mp3 server for your browser
+ CherryMusic is a music streaming
+ server written in python. It's based on cherrypy and jPlayer.
+ You can search your collection, create and share playlists with
+ other users. It's able to play music on almost all devices since
+ it happens in your browser and uses HTML5 for audio playback.
