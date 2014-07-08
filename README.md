@@ -28,13 +28,13 @@ Test the the init script by running:
 
 When everything went correctly, run:
 
-    update-rc.d /etc/init.d/cherrymusic defaults
+    update-rc.d cherrymusic defaults
 
 This uses the Debian-specific command to add the init script at the right place, automatically.
 
 To remove the script, use:
 
-    update-rc.d -f /etc/init.d/cherrymusic remove
+    update-rc.d -f cherrymusic remove
 
 -----------------
 
