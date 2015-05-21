@@ -17,6 +17,7 @@ NAME=cherrymusic
 DIR= # add path to the cherrymusic folder; must not end with /
 DAEMON=$DIR/cherrymusic
 PIDFILE=/var/run/$NAME.pid
+LOGFILE=/var/log/$NAME/$NAME.log
 SCRIPTNAME=/etc/init.d/$NAME
 PYTHON=  #add python executable path
 
@@ -51,12 +52,12 @@ do_start() {
         else
             rm -f $PIDFILE
 
-            start-stop-daemon --start --background --chdir $DIR --chuid $USER:$GROUP --make-pidfile --pidfile $PIDFILE --quiet --exec $PYTHON $DAEMON --test > /dev/null || return 1
-            start-stop-daemon --start --background --chdir $DIR --chuid $USER:$GROUP --make-pidfile --pidfile $PIDFILE --quiet --exec $PYTHON $DAEMON -- $DAEMON_ARGS || return 2
+            start-stop-daemon --start --background --chdir $DIR --chuid $USER:$GROUP --make-pidfile --pidfile $PIDFILE --no-close --exec $PYTHON $DAEMON --test > /dev/null || return 1
+            start-stop-daemon --start --background --chdir $DIR --chuid $USER:$GROUP --make-pidfile --pidfile $PIDFILE --no-close --exec $PYTHON $DAEMON -- $DAEMON_ARGS >> $LOGFILE 2>&1 || return 2
         fi
     else
-        start-stop-daemon --start --background --chdir $DIR --chuid $USER:$GROUP --make-pidfile --pidfile $PIDFILE --quiet --exec $PYTHON $DAEMON --test > /dev/null || return 1
-        start-stop-daemon --start --background --chdir $DIR --chuid $USER:$GROUP --make-pidfile --pidfile $PIDFILE --quiet --exec $PYTHON $DAEMON -- $DAEMON_ARGS || return 2
+        start-stop-daemon --start --background --chdir $DIR --chuid $USER:$GROUP --make-pidfile --pidfile $PIDFILE --no-close --exec $PYTHON $DAEMON --test > /dev/null || return 1
+        start-stop-daemon --start --background --chdir $DIR --chuid $USER:$GROUP --make-pidfile --pidfile $PIDFILE --no-close --exec $PYTHON $DAEMON -- $DAEMON_ARGS >> $LOGFILE 2>&1 || return 2
     fi
 }
 
