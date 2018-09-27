@@ -22,7 +22,7 @@ IF your libraries or DB are on remote filesystems, you might want to add '$remot
 
 -----------------
 
-Test the the init script by running:
+Test the init script by running:
 
     service cherrymusic start
 
